@@ -1,1 +1,1 @@
-var werewolvesApp = angular.module("werewolvesApp", []);
+var wwApp = angular.module('wwApp', []);

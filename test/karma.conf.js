@@ -16,6 +16,8 @@ module.exports = function(config){
 
     browsers : ['Chrome'],
 
+    concurrency: Infinity,
+
     plugins : [
             'karma-chrome-launcher',
             'karma-jasmine'
