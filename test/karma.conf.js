@@ -47,5 +47,5 @@ module.exports = function(config) {
     singleRun: false,
 
     concurrency: Infinity
-  })
-}
+  });
+};
