@@ -8,7 +8,7 @@ describe("rules", function () {
   it('should have the images of the cards available', function () {
     browser.get('/rules');
     villager = element(by.css("img[src*='villager.jpg']"));
-    expect((vilager).isPresent()).toBe(true);
+    expect((villager).isPresent()).toBe(true);
   });
 
   it('should be able to click on the cards', function () {
