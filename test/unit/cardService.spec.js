@@ -13,10 +13,8 @@ describe('cardService', function(){
     var werewolf = new cardFactory("Werewolf", "picture.jpg", "kills");
     var villager = new cardFactory("Villager", "picture.jpg", "dies");
 
-    playersArray = [2,1];
+    var players = 4;
 
-    cardService.createCards().then(function(playersArray){
-      expect(playersArray).toEqual([[villager, villager],[werewolf]]);
-    });
+    expect(cardService.createCards(players)).toEqual([[villager, villager, villager],[werewolf]]);
   });
 });
