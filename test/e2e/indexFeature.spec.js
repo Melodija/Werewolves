@@ -14,7 +14,7 @@ describe("werewolvesApp", function () {
     expect($('#rules-btn').getText()).toMatch('Rules');
 
     $('#rules-btn').click();
-    expect(browser.currentUrl()).toEqual('http://localhost:8080/rules');
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/rules?');
   });
 
 });

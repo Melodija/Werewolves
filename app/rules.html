@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app='werewolvesApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>Rules</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controller.js"></script>
+  </head>
+  <body >
+    <div ng-controller='werewolvesController as ctrl'>
+      <h1>Rules</h1>
+      <h2>General instructions</h2>
+      <p id='instructions'>test</p>
+      <article id='card-instructions' >
+        <p>{{ctrl.selectedCard.name}}</p>
+        <img ng-src="{{ctrl.selectedCard.img}}"/>
+        <p>{{ctrl.selectCard.description}}</p>
+      </article>
+      <h2>Card Instructions</h2>
+      <h2>Cards</h2>
+      <div ng-repeat='card in ctrl.cards'></div>
+      <p>{{card.name}}</p>
+      <img ng-src="{{card.img}}" ng-click='{{ctrl.selectCard(card.img)}}'/>
+  </body>
+</html>

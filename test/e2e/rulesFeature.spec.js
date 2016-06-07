@@ -15,7 +15,7 @@ describe("rules", function () {
     browser.get('/rules');
     villager = element(by.css("img[src*='villager.jpg']"));
     villager.click();
-    expect(browser.currentUrl()).toEqual('http://localhost:8080/rules/villager');
+    expect($('#card-name')).toEqual('Villager');
   });
 
 
