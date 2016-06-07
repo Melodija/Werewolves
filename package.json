@@ -5,7 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "protractor": "./node_modules/protractor/bin/protractor",
+    "start": "cd app && ../node_modules/http-server/bin/http-server",
+    "selenium": "./node_modules/protractor/bin/webdriver-manager start",
+    "install-selenium-dependencies": "./node_modules/protractor/bin/webdriver-manager update",
+    "install-bower-dependencies": "./node_modules/bower/bin/bower install",
+    "test-features": "./node_modules/protractor/bin/protractor test/protractor.conf.js",
+    "test-units": "./node_modules/karma-cli/bin/karma start test/karma.conf.js",
     "webdriver-manager": "./node_modules/protractor/bin/webdriver-manager"
   },
   "author": "",
