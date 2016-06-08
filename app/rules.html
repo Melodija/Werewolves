@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html ng-app='werewolvesApp'>
+<html ng-app='wwApp'>
   <head>
     <meta charset="utf-8">
     <title>Rules</title>
     <script src="bower_components/angular/angular.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/controller.js"></script>
+    <script src="js/controllers/controller.js"></script>
+    <script src="js/factories/cardFactory.js"></script>
+    <script src="js/services/cardService.js"></script>
   </head>
   <body >
-    <div ng-controller='werewolvesController as ctrl'>
+    <div ng-controller='wwController as ctrl'>
       <h1>Rules</h1>
       <h2>General instructions</h2>
       <p id='instructions'>test</p>
+
       <article id='card-instructions' >
-        <p>{{ctrl.selectedCard.name}}</p>
-        <img ng-src="{{ctrl.selectedCard.img}}"/>
-        <p>{{ctrl.selectCard.description}}</p>
+        <h2>Card Instructions</h2>
+        <p id='selected-title'>{{ctrl.selectedCard.title}}</p>
+        <img ng-src="{{ctrl.selectedCard.image}}"/>
+        <p>{{ctrl.selectedCard.text}}</p>
       </article>
-      <h2>Card Instructions</h2>
+
       <h2>Cards</h2>
-      <div ng-repeat='card in ctrl.cards'></div>
-      <p>{{card.name}}</p>
-      <img ng-src="{{card.img}}" ng-click='{{ctrl.selectCard(card.img)}}'/>
+      <div ng-repeat="card in ctrl.cards">
+        <p>{{card.title}}</p>
+        <img ng-src="{{card.image}}" ng-click='ctrl.selectCard(card);'/>
+      </div>
   </body>
 </html>

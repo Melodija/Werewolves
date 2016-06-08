@@ -13,9 +13,9 @@ describe("rules", function () {
 
   it('should be able to click on the cards', function () {
     browser.get('/rules');
-    villager = element(by.css("img[src*='villager.jpg']"));
-    villager.click();
-    expect($('#card-name')).toEqual('Villager');
+    werewolf = element(by.css("img[src*='werewolf.jpg']"));
+    werewolf.click();
+    expect($('#selected-title')).toEqual('Werewolf');
   });
 
 
