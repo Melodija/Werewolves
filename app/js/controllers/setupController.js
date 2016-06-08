@@ -1,4 +1,5 @@
-wwApp.controller('setupController', function() {
+wwApp.controller('SetupController', function() {
+
   var self = this;
 
   self.playerNumber = function(number){

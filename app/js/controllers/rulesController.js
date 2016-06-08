@@ -3,7 +3,7 @@ wwApp.controller('wwController', ['cardService', 'cardFactory', function(cardSer
 
   self.selectedCard = {
     title: 'Villager',
-    image: '/assets/img/villager.jpg',
+    image: '/assets/img/villager.png',
     text: 'dies'
   };
 
@@ -14,12 +14,12 @@ wwApp.controller('wwController', ['cardService', 'cardFactory', function(cardSer
 
   self.cards = [{
       title: 'Villager',
-      image: '/assets/img/villager.jpg',
+      image: '/assets/img/villager.png',
       text: 'dies'
     },
     {
       title: 'Werewolf',
-      image: '/assets/img/werewolf.jpg',
+      image: '/assets/img/werewolf.png',
       text: 'kills'
     }
   ];

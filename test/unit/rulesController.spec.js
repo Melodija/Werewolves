@@ -1,4 +1,4 @@
-describe('cardService', function(){
+describe('rulesController', function(){
   beforeEach(module('wwApp'));
 
   var werewolf = [{title: "Werewolf", image: "picture.jpg", text: "kills"}];
