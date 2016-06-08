@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app='wwApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>Setup</title>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/setupController.js"></script>
+  </head>
+  <body>
+    <div ng-controller='setupController as ctrl'>
+      <form><input type="button" value="Back" onClick="history.go(-1);return true;"></form>
+      Number of players:
+      <input id="num-of-players" type="text" ng-model="numOfPlayers">
+      Number of wolves:
+      <input id="num-of-wolves" type="text" placeholder="Suggested number:{{ctrl.werewolfCalculator(numOfPlayers)}}" ng-model="numOfWolves">
+    </div>
+    <form action="game" method="get">
+      <button id='game-btn' type="submit">Start Game</button>
+    </form>
+  </body>
+</html>

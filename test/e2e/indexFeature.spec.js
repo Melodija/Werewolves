@@ -19,10 +19,10 @@ describe("werewolvesApp", function () {
 
   it('should have a Start Game button', function () {
     browser.get('/');
-    expect($('#game-btn').getText()).toMatch('Start Game');
+    expect($('#setup-btn').getText()).toMatch('Start Game');
 
-    $('#game-btn').click();
-    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/game?');
+    $('#setup-btn').click();
+    expect(browser.getCurrentUrl()).toEqual('http://localhost:8080/setup?');
   });
 
 });
