@@ -1,4 +1,4 @@
-describe('cardService', function(){
+describe('setupController', function(){
   beforeEach(module('wwApp'));
 
   var controller;
