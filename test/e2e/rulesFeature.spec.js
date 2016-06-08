@@ -11,7 +11,7 @@ describe("rules", function () {
     expect((villager).isPresent()).toBe(true);
   });
 
-  it('should be able to click on the cards', function () {
+  xit('should be able to click on the cards', function () {
     browser.get('/rules');
     werewolf = element(by.css("img[src*='werewolf.jpg']"));
     werewolf.click();

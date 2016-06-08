@@ -12,6 +12,7 @@
   <body >
     <div ng-controller='wwController as ctrl'>
       <h1>Rules</h1>
+      <form><input type="button" value="Back" onClick="history.go(-1);return true;"></form>
       <h2>General instructions</h2>
       <div ng-include="'instructions.html'"></div>
       <p id='instructions'>test</p>
