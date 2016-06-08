@@ -11,6 +11,7 @@
     <div ng-controller='werewolvesController as ctrl'>
       <h1>Rules</h1>
       <h2>General instructions</h2>
+      <div ng-include="'instructions.html'"></div>
       <p id='instructions'>test</p>
       <article id='card-instructions' >
         <p>{{ctrl.selectedCard.name}}</p>
