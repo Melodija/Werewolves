@@ -1,4 +1,5 @@
 wwApp.controller('SetupController', function() {
+
   var self = this;
 
   self.playerNumber = function(number){
@@ -7,6 +8,6 @@ wwApp.controller('SetupController', function() {
 
   self.werewolfCalculator = function(numberofPlayers) {
     console.log(this.playerNumber);
-    return (numberofPlayers / 4);
+    return Math.floor(numberofPlayers / 4);
   };
 });
