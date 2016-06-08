@@ -1,4 +1,4 @@
-wwApp.controller('SetupController', ['cardService', 'cardFactory', function(cardService, cardFactory) {
+wwApp.controller('SetupController', function() {
   var self = this;
 
   self.playerNumber = function(number){
@@ -9,4 +9,4 @@ wwApp.controller('SetupController', ['cardService', 'cardFactory', function(card
     console.log(this.playerNumber);
     return (numberofPlayers / 4);
   };
-}]);
+});
