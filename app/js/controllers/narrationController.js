@@ -8,7 +8,8 @@ wwApp.controller('narrationController', function() {
   self.day = 1;
 
   self.getOrder = function(array){
-      array.map(function(obj){return obj.order;});
+      array.map(function(obj){ return obj.order;});
+
   };
 
   self.nextTurn = function(array) {
@@ -30,9 +31,9 @@ wwApp.controller('narrationController', function() {
   };
 
   self.narrativeStore = {
-    werewolves: 'hello kill things',
-    villager: 'kill each other',
-    seer: 'see things'
+    werewolves: 'Please all agree on a person you would like to devour tonight.',
+    villager: 'Discuss who died. Then please nominate who you would like to lynch today. The person with the most votes shall day today.',
+    seer: 'Please select someone whose card you would like to see.'
   };
 
   self.getNarrative = function() {
