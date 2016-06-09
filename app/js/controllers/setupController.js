@@ -1,4 +1,4 @@
-wwApp.controller('SetupController', function() {
+wwApp.controller('SetupController', function($scope, deckService) {
 
   var self = this;
 
@@ -7,7 +7,6 @@ wwApp.controller('SetupController', function() {
   };
 
   self.werewolfCalculator = function(numberofPlayers) {
-    console.log(this.playerNumber);
     return Math.floor(numberofPlayers / 4);
   };
 
@@ -19,5 +18,30 @@ wwApp.controller('SetupController', function() {
   //   // wolves.times
   //   // totalCharacters.push("wolf" * wolves)
   //
+  // };
+  self.roles = ['seer', 'hunter', 'werewolf', 'villager'];
+
+  $scope.selectedRoles = {};
+
+  self.confirmedRoles = [];
+
+self.objToArray = function (object) {
+  var result = Object.keys(object).filter(function(x) {
+
+      if( object[x] !== false){
+        self.confirmedRoles.push(x);
+      }
+  });
+};
+
+self.setDeck = function (confirmedRoles) {
+  deckService.set(confirmedRoles);
+};
+
+  // self.confirmedRoles = {};
+  //
+  // self.selectRoles = function(selectedRoles) {
+  //   self.confirmedRoles = selectedRoles;
+  //   console.log(self.confirmedRoles);
   // };
 });

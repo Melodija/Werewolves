@@ -22,23 +22,23 @@ angular.module('wwApp')
     "defender", "picture.png", "defends", 5
   );
 
-  self.characterParser = function(arrayOfSpecials){
-    functionArray = [];
-    parser = { 'Villager': villager,
-                'Werewolf': werewolf,
-                'Seer': seer,
-                'Witch': witch,
-                'Defender': defender};
-              };
-    for (i = 0; i < arrayOfSpecials.length; i++){
-      if (arrayOfSpecials[i].localeCompare(parser)){
-        functionArray.push(parser[arrayOfSpecials[i]);
-      }
-      else {
-          return 'this thing is not there';
-        }
-      }
-  }
+  // self.characterParser = function(arrayOfSpecials){
+  //   functionArray = [];
+  //   parser = { 'Villager': villager,
+  //               'Werewolf': werewolf,
+  //               'Seer': seer,
+  //               'Witch': witch,
+  //               'Defender': defender};
+  //             };
+  //   for (i = 0; i < arrayOfSpecials.length; i++){
+  //     if (arrayOfSpecials[i].localeCompare(parser)){
+  //       functionArray.push(parser[arrayOfSpecials[i]);
+  //     }
+  //     else {
+  //         return 'this thing is not there';
+  //       }
+  //     }
+  // }
 
   self.createCards = function(numOfPlayers, numOfWolves) {
     var characters = [];

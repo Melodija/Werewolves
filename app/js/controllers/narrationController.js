@@ -1,5 +1,8 @@
-wwApp.controller('narrationController', function() {
+wwApp.controller('narrationController', function($scope, deckService) {
   var self = this;
+
+  self.playDeck = deckService.get();
+  console.log(deckService.get());
 
   self.turns = ['werewolves', 'villager'];
 
