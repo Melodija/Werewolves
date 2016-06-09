@@ -16,18 +16,24 @@ describe('narrationController', function(){
     expect(villager.order).toEqual(1);
   });
 
-  it('returns an array', function() {
-    var villager = new cardFactory("Villager", "picture.png", "dies", 1);
-    var werewolf = new cardFactory("Werewolf", "picture.png", "kills", 2);
-    var array = [villager, werewolf];
-    expect(controller.getOrder(array)).toEqual([1,2]);
-  });
-
   it('returns the next possible turn', function() {
     var villager = new cardFactory("Villager", "picture.png", "dies", 1);
     var werewolf = new cardFactory("Werewolf", "picture.png", "kills", 2);
     var array = [villager, werewolf];
     expect(controller.nextTurn(array)).toEqual(1);
+  });
+
+  it('should get the orders of the array', function() {
+    var villager = new cardFactory("Villager", "picture.png", "dies", 1);
+    var wolf = new cardFactory("Werewolf", "picture.png", "kills", 2);
+    array = [villager, wolf];
+    expect(controller.getOrder(array)).toEqual([1,2]);
+  });
+
+  xit('turn order resets each night', function() {
+    controller.nextTurn();
+    controller.nextTurn();
+    expect(controller.currentTurn).toEqual(0);
   });
 
   xit('can return the correct narrative', function() {

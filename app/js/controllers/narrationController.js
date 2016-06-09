@@ -1,7 +1,8 @@
-wwApp.controller('narrationController', function() {
+wwApp.controller('narrationController', function($scope, deckService) {
   var self = this;
 
   self.turns = ['werewolves', 'villager', 'seer'];
+  self.playDeck = deckService.get();
 
   self.currentTurn = 0;
 
@@ -30,9 +31,9 @@ wwApp.controller('narrationController', function() {
   };
 
   self.narrativeStore = {
-    werewolves: 'hello kill things',
-    villager: 'kill each other',
-    seer: 'see things'
+    werewolves: 'Please all agree on a person you would like to devour tonight.',
+    villager: 'Discuss who died. Then please nominate who you would like to lynch today. The person with the most votes shall day today.',
+    seer: 'Please select someone whose card you would like to see.'
   };
 
   self.getNarrative = function() {
