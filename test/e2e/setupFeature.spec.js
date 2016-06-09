@@ -1,12 +1,15 @@
 describe('Setup', function () {
   it('can input the number of players', function() {
     browser.get('/');
+    $('#setup-btn').click();
     $('#num-of-players').sendKeys("10");
-    expect($('#num-of-wolves')).toBe(Number);
+    var wolfText = $('#num-of-wolves').getAttribute('placeholder');
+    expect(wolfText).toMatch("Suggested number:2");
   });
 
   it('should have a Start Game button', function () {
     browser.get('/');
+    $('#setup-btn').click();
     expect($('#game-btn').getText()).toMatch('Start Game');
 
     $('#game-btn').click();
