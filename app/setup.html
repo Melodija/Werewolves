@@ -10,17 +10,19 @@
   <body>
     <div ng-controller='SetupController as ctrl'>
       <form><input type="button" value="Back" onClick="history.go(-1);return true;"></form>
+      <form action="game" method="get" ng-submit="ctrl.selectRoles(selectedRoles)">
         Number of players:
-      <input id="num-of-players" type="text" ng-model="numOfPlayers">
+        <input id="num-of-players" type="text" ng-model="numOfPlayers">
         Number of wolves:
-      <input id="num-of-wolves" type="text" placeholder="Suggested number:{{ctrl.werewolfCalculator(numOfPlayers)}}" ng-model="numOfWolves">
-      <label ng-repeat="role in roles">
-        <input type="checkbox" checklist-model="user.roles" checklist-value="role">{{role}}</input>
-      </label>
-      {{user.roles}}
-    </div>
-    <form action="game" method="get">
-      <button id='game-btn' type="submit" ng-click="">Start Game</button>
+        <input id="num-of-wolves" type="text" placeholder="Suggested number:{{ctrl.werewolfCalculator(numOfPlayers)}}" ng-model="numOfWolves">
+        <label ng-repeat="role in ctrl.roles">
+          <input id="{{role + '-check'}}"  type="checkbox" ng-model="selectedRoles[role]">{{role}}</input>
+        </label>
+        <div id="selected-cards">
+          Cards are {{selectedRoles}}
+        </div>
+      </div>
+      <button id='game-btn' type="submit">Start Game</button>
     </form>
   </body>
 </html>

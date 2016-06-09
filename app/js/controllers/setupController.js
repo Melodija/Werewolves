@@ -1,4 +1,4 @@
-wwApp.controller('SetupController', function() {
+wwApp.controller('SetupController', function($scope) {
 
   var self = this;
 
@@ -8,5 +8,16 @@ wwApp.controller('SetupController', function() {
 
   self.werewolfCalculator = function(numberofPlayers) {
     return Math.floor(numberofPlayers / 4);
+  };
+
+  self.roles = ['seer', 'hunter', 'werewolf', 'villager'];
+
+  $scope.selectedRoles = {};
+
+  self.confirmedRoles = {};
+
+  self.selectRoles = function(selectedRoles) {
+    self.confirmedRoles = selectedRoles;
+    console.log(self.confirmedRoles);
   };
 });
