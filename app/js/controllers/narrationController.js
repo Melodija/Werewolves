@@ -1,4 +1,4 @@
-wwApp.controller('narrationController', function($scope, deckService) {
+wwApp.controller('narrationController', function(deckService) {
   var self = this;
 
   self.turns = ['werewolves', 'villager', 'seer'];
@@ -9,7 +9,7 @@ wwApp.controller('narrationController', function($scope, deckService) {
   self.day = 1;
 
   self.getOrder = function(array){
-      array.map(function(obj){ return obj.order;});
+      return array.map(function(obj){ return obj.order;});
 
   };
 
