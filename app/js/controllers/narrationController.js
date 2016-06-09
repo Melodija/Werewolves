@@ -10,7 +10,6 @@ wwApp.controller('narrationController', function(deckService) {
 
   self.getOrder = function(array){
       return array.map(function(obj){ return obj.order;});
-
   };
 
   self.nextTurn = function(array) {
