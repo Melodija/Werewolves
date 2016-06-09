@@ -6,36 +6,41 @@ describe('narrationController', function(){
   beforeEach(inject(function($controller) {
     controller = $controller("narrationController");
   }));
+  beforeEach(inject(function(_cardService_, _cardFactory_) {
+    cardService = _cardService_;
+    cardFactory = _cardFactory_;
+  }));
 
-  it('starts on werewolf turn', function(){
-    expect(controller.currentTurn).toEqual(0);
+  it('can access the order property of an object', function(){
+    var villager = new cardFactory("Villager", "picture.png", "dies", 1);
+    expect(villager.order).toEqual(1);
   });
 
-  it('changes turn', function() {
+  xit('changes turn', function() {
     controller.nextTurn();
     expect(controller.currentTurn).toEqual(1);
   });
 
-  it('turn order resets each night', function() {
+  xit('turn order resets each night', function() {
     controller.nextTurn();
     controller.nextTurn();
     expect(controller.currentTurn).toEqual(0);
   });
 
-  it('can return the correct narrative', function() {
+  xit('can return the correct narrative', function() {
     expect(controller.getNarrative()).toEqual('hello kill things');
   });
 
-  it('can return the correct narrative next turn', function() {
+  xit('can return the correct narrative next turn', function() {
     controller.nextTurn();
     expect(controller.getNarrative()).toEqual('kill each other');
   });
 
-  it('starts on day one', function() {
+  xit('starts on day one', function() {
     expect(controller.day).toEqual(1);
   });
 
-  it('next turn increases the day count', function() {
+  xit('next turn increases the day count', function() {
     controller.nextTurn();
     expect(controller.day).toEqual(2);
   });
