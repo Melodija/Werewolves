@@ -8,7 +8,7 @@ wwApp.controller('narrationController', function() {
   self.day = 1;
 
   self.getOrder = function(array){
-      array.map(function(obj){return obj.order;});
+      return array.map(function(obj){return obj.order;});
   };
 
   self.nextTurn = function(array) {
