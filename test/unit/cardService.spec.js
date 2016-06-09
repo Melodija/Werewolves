@@ -8,7 +8,7 @@ describe('cardService', function(){
     cardFactory = _cardFactory_;
   }));
 
-  xit('fetches cards', function(){
+  it('fetches cards', function(){
 
     var werewolf = new cardFactory("Werewolf", "picture.jpg", "kills");
     var villager = new cardFactory("Villager", "picture.jpg", "dies");
@@ -17,4 +17,6 @@ describe('cardService', function(){
 
     expect(cardService.createCards(players)).toEqual([[villager, villager, villager],[werewolf]]);
   });
+
+
 });

@@ -1,7 +1,8 @@
-wwApp.controller('narrationController', function() {
+wwApp.controller('narrationController', function($scope, deckService) {
   var self = this;
 
   self.turns = ['werewolves', 'villager', 'seer'];
+  self.playDeck = deckService.get();
 
   self.currentTurn = 0;
 
