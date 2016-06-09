@@ -19,7 +19,19 @@ wwApp.controller('SetupController', function($scope, deckService) {
   //   // totalCharacters.push("wolf" * wolves)
   //
   // };
-  self.roles = ['seer', 'hunter', 'werewolf', 'villager'];
+  self.roles = [
+              {title: 'seer',
+              orderNumber: 2,
+              dayOne: false},
+              {title: 'hunter',
+              orderNumber: 999,
+              dayOne: false},
+              {title: 'werewolf',
+              orderNumber: 1,
+              dayOne: false},
+              {title: 'villager',
+              orderNumber: 3,
+              dayOne: false}];
 
   $scope.selectedRoles = {};
 
@@ -28,14 +40,9 @@ wwApp.controller('SetupController', function($scope, deckService) {
 self.objToArray = function (object) {
   var result = Object.keys(object).filter(function(x) {
 
-      if( object[x] !== false){
-        self.confirmedRoles.push(x);
-      }
+      if( object[x] !== false){self.confirmedRoles.push(object[x]); }
   });
-};
-
-self.setDeck = function (confirmedRoles) {
-  deckService.set(confirmedRoles);
+  deckService.set(self.confirmedRoles);
 };
 
   // self.confirmedRoles = {};

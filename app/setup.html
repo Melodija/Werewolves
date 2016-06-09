@@ -17,15 +17,12 @@
         Number of wolves:
         <input id="num-of-wolves" type="text" placeholder="Suggested number:{{ctrl.werewolfCalculator(numOfPlayers)}}" ng-model="numOfWolves">
         <label ng-repeat="role in ctrl.roles">
-          <input id="{{role + '-check'}}"  type="checkbox" ng-model="selectedRoles[role]">{{role}}</input>
+          <input id="{{role.title + '-check'}}" ng-true-value='{{role}}' type="checkbox" ng-model="selectedRoles[role.title]">{{role.title}}</input>
         </label>
         <div id="selected-cards">
-          Cards are {{ctrl.confirmedRoles}}
         </div>
-      <button id='game-btn' type="submit" ng-click="ctrl.setDeck(ctrl.confirmedRoles)">Start Game</button>
+        <button type=="button" ng-click="ctrl.objToArray(selectedRoles)">Start Game</button>
     </form>
-    <button type=="button" ng-click="ctrl.objToArray(selectedRoles)">Assign Roles</button>
-    <button type=="button" ng-click="ctrl.setDeck(ctrl.confirmedRoles)">Set Roles</button>
   </div>
   </body>
 </html>
