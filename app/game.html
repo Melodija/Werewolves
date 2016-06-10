@@ -7,20 +7,31 @@
     <script src="js/app.js"></script>
     <script src="js/controllers/narrationController.js"></script>
     <script src="js/services/deckService.js"></script>
-  </head>
-  <body>
-    <div ng-controller="narrationController as ctrl">
-      Selected are: {{ctrl.playDeck}}
+    <link type="text/css" rel="stylesheet" href="assets/css/materialize.css"  media="screen,projection"/>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="assets/css/master.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="assets/css/master.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="assets/css/stylesheet.css"></link>
+    <link href='https://fonts.googleapis.com/css?family=Nosifer' rel='stylesheet' type='text/css'>
+</head>
+  <body class="home center">
+    <div ng-controller="narrationController as ctrl" class="center">
 
       <h1 id="header">Day {{ctrl.day}}</h1>
 
-        <button id='nextButton' type="submit" ng-click="ctrl.nextTurn(self.playDeck)">Next</button>
-        {{ctrl.getTitle(ctrl.playDeck)}}
-        <p>{{ctrl.currentRole}}</p>
-        <p>{{ctrl.getNarrative()}}</p>
+        <div class="card-panel">
+          {{ctrl.getTitle(ctrl.playDeck)}}
+          <p>{{ctrl.currentRole}}</p>
+          <p>{{ctrl.getNarrative()}}</p>
+        </div>
 
-
+        <button id='nextButton' type="submit" ng-click="ctrl.nextTurn(self.playDeck)" class="homeButtons waves-effect waves-light btn-large red darken-4 z-depth-2">
+          <i class="material-icons left">keyboard_arrow_right</i>
+          Next Turn
+        </button>
     </div>
-
   </body>
 </html>
