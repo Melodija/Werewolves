@@ -10,6 +10,18 @@ wwApp.controller('SetupController', function($scope, deckService) {
     return Math.floor(numberofPlayers / 4);
   };
 
+  $scope.selectedRoles = {};
+
+  self.confirmedRoles = [];
+
+  self.objToArray = function (object) {
+    var result = Object.keys(object).filter(function(x) {
+
+        if( object[x] !== false){self.confirmedRoles.push(object[x]); }
+    });
+    deckService.set(self.confirmedRoles);
+  };
+
   self.roles = [
               {title: 'seer',
               orderNumber: 1,
@@ -23,16 +35,4 @@ wwApp.controller('SetupController', function($scope, deckService) {
               {title: 'villager',
               orderNumber: 2,
               dayOne: false}];
-
-  $scope.selectedRoles = {};
-
-  self.confirmedRoles = [];
-
-  self.objToArray = function (object) {
-    var result = Object.keys(object).filter(function(x) {
-
-        if( object[x] !== false){self.confirmedRoles.push(object[x]); }
-    });
-    deckService.set(self.confirmedRoles);
-  };
 });

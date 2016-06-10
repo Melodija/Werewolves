@@ -15,7 +15,8 @@
       <h1 id="header">Day {{ctrl.day}}</h1>
 
         <button id='nextButton' type="submit" ng-click="ctrl.nextTurn(self.playDeck)">Next</button>
-        <p>{{ctrl.getTitle(ctrl.playDeck)}}</p>
+        {{ctrl.getTitle(ctrl.playDeck)}}
+        <p>{{ctrl.currentRole}}</p>
         <p>{{ctrl.getNarrative()}}</p>
 
 

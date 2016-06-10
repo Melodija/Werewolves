@@ -3,6 +3,8 @@ wwApp.controller('narrationController', function(deckService) {
 
   self.turns = ['werewolves', 'villager', 'seer'];
   self.playDeck = deckService.get();
+  self.playDeck.sort(function(a,b) {return (a.orderNumber > b.orderNumber) ? 1 : ((b.orderNumber > a.orderNumber) ? -1 : 0);} );
+  console.log(self.playDeck);
 
   self.currentTurn = 0;
 
@@ -15,19 +17,12 @@ wwApp.controller('narrationController', function(deckService) {
   };
 
   self.nextTurn = function(array) {
-    self.currentTurn ++;
-    if (self.getOrder(array).includes(self.currentTurn)) {
-      return self.currentTurn;
-    } else if (self.currentTurn > 70) {
-       self.currentTurn = 0;
-       self.nextTurn(array);
+    console.log(self.currentTurn);
+    if (self.currentTurn === self.playDeck.length - 1) {
+      self.currentTurn = 0;
     } else {
-      self.nextTurn(array);
+      self.currentTurn += 1;
     }
-  };
-
-  self.checkTitle = function(object){
-    if (object.orderNumber === self.currentTurn){ return object.title;}
   };
 
   self.getTitle = function (array) {
@@ -39,16 +34,14 @@ wwApp.controller('narrationController', function(deckService) {
     });
   };
 
-
+  self.getNarrative = function() {
+    return self.narrativeStore[self.currentRole];
+  };
 
   self.narrativeStore = {
     werewolves: 'Please all agree on a person you would like to devour tonight.',
     villager: 'Discuss who died. Then please nominate who you would like to lynch today. The person with the most votes shall day today.',
     seer: 'Please select someone whose card you would like to see.'
-  };
-
-  self.getNarrative = function() {
-    return self.narrativeStore[self.currentRole];
   };
 
 });
