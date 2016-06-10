@@ -6,10 +6,12 @@ wwApp.controller('narrationController', function(deckService) {
 
   self.currentTurn = 0;
 
+  self.currentRole = "";
+
   self.day = 1;
 
   self.getOrder = function(array){
-      return array.map(function(obj){return obj.order;});
+      return array.map(function(obj){console.log(obj);return obj.orderNumber;});
   };
 
   self.nextTurn = function(array) {
@@ -25,12 +27,19 @@ wwApp.controller('narrationController', function(deckService) {
   };
 
   self.checkTitle = function(object){
-    if (object.order === currentTurn){ return object.title;}
+    if (object.orderNumber === self.currentTurn){ return object.title;}
   };
 
   self.getTitle = function (array) {
-    return angular.forEach(array(checkTitle());
+    array.forEach(function(object) {
+      if(object.orderNumber === self.currentTurn){
+        self.currentRole = object.title;
+
+      }
+    });
   };
+
+
 
   self.narrativeStore = {
     werewolves: 'Please all agree on a person you would like to devour tonight.',
@@ -39,8 +48,7 @@ wwApp.controller('narrationController', function(deckService) {
   };
 
   self.getNarrative = function() {
-    return self.narrativeStore[self.turns[self.currentTurn]];
+    return self.narrativeStore[self.currentRole];
   };
-
 
 });
