@@ -112,6 +112,4 @@ wwApp.controller('SetupController', function($scope, deckService) {
               dayOne: false},
 
             ];
-=======
->>>>>>> cd7df5e5549f756195451a39d6db70e78319c735
 });
