@@ -1,4 +1,4 @@
-wwApp.controller('narrationController', function($scope, deckService) {
+wwApp.controller('narrationController', function(deckService) {
   var self = this;
 
   self.turns = ['werewolves', 'villager', 'seer'];
@@ -20,14 +20,16 @@ wwApp.controller('narrationController', function($scope, deckService) {
        self.currentTurn = 0;
        self.nextTurn(array);
     } else {
-      self.nexTurn(array);
+      self.nextTurn(array);
     }
   };
 
-  self.checkTitle = function(){if (self.currentTurn == this.order){ return this.title;}};
+  self.checkTitle = function(object){
+    if (object.order === currentTurn){ return object.title;}
+  };
 
   self.getTitle = function (array) {
-    array.forEach(checkTitle());
+    return angular.forEach(array(checkTitle());
   };
 
   self.narrativeStore = {
