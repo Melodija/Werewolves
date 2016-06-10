@@ -12,9 +12,9 @@ wwApp.controller('narrationController', function(deckService) {
   self.day = 1;
 
   self.nextTurn = function(array) {
-    console.log(self.currentTurn);
     if (self.currentTurn === self.playDeck.length - 1) {
       self.currentTurn = 0;
+      self.day ++;
     } else {
       self.currentTurn += 1;
     }
