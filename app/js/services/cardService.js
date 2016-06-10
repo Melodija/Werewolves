@@ -2,25 +2,9 @@ angular.module('wwApp')
        .service('cardService', ['cardFactory', function(cardFactory) {
   var self = this;
 
-  var villager = new cardFactory(
-    "Villager", "picture.png", "dies", 1
-  );
-
-  var werewolf = new cardFactory(
-    "Werewolf", "picture.png", "kills", 2
-  );
-
-  var seer = new cardFactory(
-    "Seer", "picture.png", "sees", 3
-  );
-
-  var witch = new cardFactory(
-    "Witch", "picture.png", "kills or saves", 4
-  );
-
-  var defender = new cardFactory(
-    "defender", "picture.png", "defends", 5
-  );
+  var villager = new cardFactory("Villager", "picture.png", "dies", 1);
+  var werewolf = new cardFactory("Werewolf", "picture.png", "kills", 3);
+  var seer = new cardFactory("Seer", "picture.png", "sees", 2);
 
   // self.characterParser = function(arrayOfSpecials){
   //   functionArray = [];
