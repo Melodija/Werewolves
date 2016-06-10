@@ -13,7 +13,7 @@ wwApp.controller('narrationController', function(deckService) {
   self.day = 1;
 
   self.getOrder = function(array){
-      return array.map(function(obj){console.log(obj);return obj.orderNumber;});
+      return array.map(function(obj){ return obj.order;});
   };
 
   self.nextTurn = function(array) {
