@@ -33,7 +33,7 @@
             <label for="num-of-players">Number of players:</label>
           </div>
           <div class="input-field col s6">
-            <input id="num-of-wolves" type="text" placeholder="Suggested number: {{ctrl.werewolfCalculator(numOfPlayers)}}" ng-model="numOfWolves">
+            <input id="num-of-wolves" type="text" placeholder="Suggested number: {{ctrl.werewolfCalculator(numOfPlayers) || 0}}" ng-model="numOfWolves">
             <label for="num-of-players">Number of wolves:</label>
           </div>
           <div ng-repeat="role in ctrl.roles" class="input-field col s2">
