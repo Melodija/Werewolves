@@ -7,22 +7,43 @@
     <script src="js/app.js"></script>
     <script src="js/controllers/setupController.js"></script>
     <script src="js/services/deckService.js"></script>
+    <!-- THIS IS STYLE! -->
+    <link type="text/css" rel="stylesheet" href="assets/css/materialize.css"  media="screen,projection"/>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="assets/css/master.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="assets/css/master.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="assets/css/stylesheet.css"></link>
+    <link href='https://fonts.googleapis.com/css?family=Nosifer' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <div ng-controller='SetupController as ctrl'>
-      <form><input type="button" value="Back" onClick="history.go(-1);return true;"></form>
-      <form action="game" method="get">
-        Number of players:
-        <input id="num-of-players" type="text" ng-model="numOfPlayers">
-        Number of wolves:
-        <input id="num-of-wolves" type="text" placeholder="Suggested number:{{ctrl.werewolfCalculator(numOfPlayers)}}" ng-model="numOfWolves">
-        <label ng-repeat="role in ctrl.roles">
-          <input id="{{role.title + '-check'}}" ng-true-value='{{role}}' type="checkbox" ng-model="selectedRoles[role.title]">{{role.title}}</input>
-        </label>
-        <div id="selected-cards">
-        </div>
-        <button type=="button" ng-click="ctrl.objToArray(selectedRoles)">Start Game</button>
-    </form>
-  </div>
+      <h1>Set Up</h1>
+      <form class="center row">
+        <button type="button" name="button" value="Back" onClick="history.go(-1);return true;" class="homeButtons waves-effect waves-light btn-large red darken-4 z-depth-2">
+          <i class="material-icons left">keyboard_arrow_left</i>Back
+        </button>
+      </form>
+      <div class="row">
+        <form action="game" method="get" class="col s12">
+          <div class="input-field col s6">
+            <input id="num-of-players" type="text" ng-model="numOfPlayers">
+            <label for="num-of-players">Number of players:</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="num-of-wolves" type="text" placeholder="Suggested number: {{ctrl.werewolfCalculator(numOfPlayers)}}" ng-model="numOfWolves">
+            <label for="num-of-players">Number of wolves:</label>
+          </div>
+          <div ng-repeat="role in ctrl.roles" class="input-field col s2">
+            <input id="{{role.title + '-check'}}" ng-true-value='{{role}}' type="checkbox" ng-model="selectedRoles[role.title]">{{role.title}}</input>
+            <label for="{{role.title + '-check'}}" class="checkLabel"></label>
+          </div>
+          <div id="selected-cards"></div>
+          <button type=="button" ng-click="ctrl.objToArray(selectedRoles)" class="homeButtons left waves-effect waves-light btn-large red darken-4 z-depth-2">Start Game</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,0 +1,53 @@
+.home {
+  background-image: url("http://i.imgur.com/QLyS1We.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+body{
+  background: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+h1, h2, h3, h4, h5 {
+  font-family: Nosifer;
+  color: #b71c1c;
+  text-align: center;
+  text-shadow: 2px 5px rgba(0,0,0,0.30);
+}
+h1{  font-size: 9vw;}
+.homeButtons {
+    border-radius: 10px;
+}
+
+.modal {
+  background: black;
+  border: 2px solid;
+}
+.modal img {
+  float: left;
+  padding: 0 12px 12px 0;
+}
+.modal h5 {
+  text-decoration: underline;
+}
+.modal .modal-content {
+  min-height: 320px;
+}
+.card-panel {
+  margin: 0 auto 24px;
+  width: 70%;
+  background: rgba(66, 66, 66, 0.85)
+}
+/*HACKS - DON'T USE THIS OFTEN*/
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #b71c1c;
+    box-shadow: 0 1px 0 0 #b71c1c;
+}
+input:not([type]):focus:not([readonly]) + label, input[type=text]:focus:not([readonly]) + label, input[type=password]:focus:not([readonly]) + label, input[type=email]:focus:not([readonly]) + label, input[type=url]:focus:not([readonly]) + label, input[type=time]:focus:not([readonly]) + label, input[type=date]:focus:not([readonly]) + label, input[type=datetime]:focus:not([readonly]) + label, input[type=datetime-local]:focus:not([readonly]) + label, input[type=tel]:focus:not([readonly]) + label, input[type=number]:focus:not([readonly]) + label, input[type=search]:focus:not([readonly]) + label, textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: #b71c1c;
+}
+[type="checkbox"]:checked + label:before {
+    border-right: 2px solid #b71c1c;
+    border-bottom: 2px solid #b71c1c;
+}
