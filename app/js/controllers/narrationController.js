@@ -1,7 +1,6 @@
 wwApp.controller('narrationController', function(deckService) {
   var self = this;
 
-  self.turns = ['werewolves', 'villager', 'seer'];
   self.playDeck = deckService.get();
   self.playDeck.sort(function(a,b) {return (a.orderNumber > b.orderNumber) ? 1 : ((b.orderNumber > a.orderNumber) ? -1 : 0);} );
   console.log(self.playDeck);
@@ -11,10 +10,6 @@ wwApp.controller('narrationController', function(deckService) {
   self.currentRole = "";
 
   self.day = 1;
-
-  self.getOrder = function(array){
-      return array.map(function(obj){ return obj.order;});
-  };
 
   self.nextTurn = function(array) {
     console.log(self.currentTurn);
@@ -26,12 +21,7 @@ wwApp.controller('narrationController', function(deckService) {
   };
 
   self.getTitle = function (array) {
-    array.forEach(function(object) {
-      if(object.orderNumber === self.currentTurn){
-        self.currentRole = object.title;
-
-      }
-    });
+    self.currentRole = array[self.currentTurn].title;
   };
 
   self.getNarrative = function() {
