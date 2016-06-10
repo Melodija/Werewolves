@@ -30,19 +30,29 @@ describe('narrationController', function(){
     expect(controller.getOrder(array)).toEqual([1,2]);
   });
 
-  xit('turn order resets each night', function() {
-    controller.nextTurn();
-    controller.nextTurn();
-    expect(controller.currentTurn).toEqual(0);
+  it('turn order resets each night', function() {
+    var villager = new cardFactory("Villager", "picture.png", "dies", 1);
+    var werewolf = new cardFactory("Werewolf", "picture.png", "kills", 2);
+    var array = [villager, werewolf];
+    controller.nextTurn(array);
+    expect(controller.nextTurn(array)).toEqual(2);
   });
 
-  xit('can return the correct narrative', function() {
-    expect(controller.getNarrative()).toEqual('hello kill things');
+  it('returns the title of the required object', function() {
+    var villager = new cardFactory("Villager", "picture.png", "dies", 1);
+    var werewolf = new cardFactory("Werewolf", "picture.png", "kills", 2);
+    var array = [villager, werewolf];
+    self.currentTurn = 2;
+    self.getTitle = function (array) {
+      return array.forEach(checkTitle());
+    };
+    expect(controller.getTitle(array)).toEqual('Werewolf');
   });
 
-  xit('can return the correct narrative next turn', function() {
-    controller.nextTurn();
-    expect(controller.getNarrative()).toEqual('kill each other');
+  it('can check the title of a single object', function() {
+    var wolf = new cardFactory("Werewolf", "picture.png", "kills", 2);
+    self.currentTurn = 2;
+    expect(controller.checkTitle(wolf)).toEqual("Werewolf");
   });
 
   xit('starts on day one', function() {

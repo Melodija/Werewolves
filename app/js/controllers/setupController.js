@@ -10,47 +10,17 @@ wwApp.controller('SetupController', function($scope, deckService) {
     return Math.floor(numberofPlayers / 4);
   };
 
-  // self.specialCharacterPicker = function(specials) {
-  //   // specials is an array
-  //   // wolves are the num_of_wolves
-  //   // players are the total number of players in the Game
-  //   // totalCharacters = specials;
-  //   // wolves.times
-  //   // totalCharacters.push("wolf" * wolves)
-  //
-  // };
-  self.roles = [
-              {title: 'seer',
-              orderNumber: 2,
-              dayOne: false},
-              {title: 'hunter',
-              orderNumber: 999,
-              dayOne: false},
-              {title: 'werewolf',
-              orderNumber: 1,
-              dayOne: false},
-              {title: 'villager',
-              orderNumber: 3,
-              dayOne: false}];
-
   $scope.selectedRoles = {};
 
   self.confirmedRoles = [];
 
-self.objToArray = function (object) {
-  var result = Object.keys(object).filter(function(x) {
+  self.objToArray = function (object) {
+    var result = Object.keys(object).filter(function(x) {
 
-      if( object[x] !== false){self.confirmedRoles.push(object[x]); }
-  });
-  deckService.set(self.confirmedRoles);
-};
-
-  // self.confirmedRoles = {};
-  //
-  // self.selectRoles = function(selectedRoles) {
-  //   self.confirmedRoles = selectedRoles;
-  //   console.log(self.confirmedRoles);
-  // };
+        if( object[x] !== false){self.confirmedRoles.push(object[x]); }
+    });
+    deckService.set(self.confirmedRoles);
+  };
 
   self.roles = [
               {title: 'Thief',
@@ -142,4 +112,6 @@ self.objToArray = function (object) {
               dayOne: false},
 
             ];
+=======
+>>>>>>> cd7df5e5549f756195451a39d6db70e78319c735
 });

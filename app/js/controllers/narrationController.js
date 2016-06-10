@@ -1,33 +1,41 @@
-wwApp.controller('narrationController', function($scope, deckService) {
+wwApp.controller('narrationController', function(deckService) {
   var self = this;
 
   self.turns = ['werewolves', 'villager', 'seer'];
   self.playDeck = deckService.get();
+  self.playDeck.sort(function(a,b) {return (a.orderNumber > b.orderNumber) ? 1 : ((b.orderNumber > a.orderNumber) ? -1 : 0);} );
+  console.log(self.playDeck);
 
   self.currentTurn = 0;
+
+  self.currentRole = "";
 
   self.day = 1;
 
   self.getOrder = function(array){
-      return array.map(function(obj){return obj.order;});
+      return array.map(function(obj){console.log(obj);return obj.orderNumber;});
   };
 
   self.nextTurn = function(array) {
-    self.currentTurn ++;
-    if (self.getOrder(array).includes(self.currentTurn)) {
-      return self.currentTurn;
-    } else if (self.currentTurn > 70) {
-       self.currentTurn = 0;
-       self.nextTurn(array);
+    console.log(self.currentTurn);
+    if (self.currentTurn === self.playDeck.length - 1) {
+      self.currentTurn = 0;
     } else {
-      self.nexTurn(array);
+      self.currentTurn += 1;
     }
   };
 
-  self.checkTitle = function(){if (self.currentTurn == this.order){ return this.title;}};
-
   self.getTitle = function (array) {
-    array.forEach(checkTitle());
+    array.forEach(function(object) {
+      if(object.orderNumber === self.currentTurn){
+        self.currentRole = object.title;
+
+      }
+    });
+  };
+
+  self.getNarrative = function() {
+    return self.narrativeStore[self.currentRole];
   };
 
   self.narrativeStore = {
@@ -54,10 +62,5 @@ wwApp.controller('narrationController', function($scope, deckService) {
     Charmed: "Tap the people who have been charmed to let them know about this. They don't acknowledge each other.",
     Villagers: 'Everyone awakes apart from (insert person name here). Discuss who died. Then please nominate who you would like to lynch today. The person with the most votes shall die today. *Remember to grunt if the Bear Tamer is in play.* *Remember to keep an eye on Stuttering Judge and Devoted Servant if they are in play during the vote*',
   };
-
-  self.getNarrative = function() {
-    return self.narrativeStore[self.turns[self.currentTurn]];
-  };
-
 
 });
